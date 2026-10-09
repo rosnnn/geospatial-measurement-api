@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Metropolitan Cadastral Survey 2026</name>
+    <description>Sample dataset containing urban parcels, road network, and survey monuments.</description>
+    
+    <!-- Polygon 1: Central Botanical Garden -->
+    <Placemark id="parcel_001">
+      <name>Central Botanical Garden</name>
+      <description>Public municipal park zone</description>
+      <ExtendedData>
+        <Data name="zoning_code"><value>ZONE-P1</value></Data>
+        <Data name="tax_exempt"><value>true</value></Data>
+        <Data name="municipality"><value>Metro City</value></Data>
+      </ExtendedData>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              77.5900,12.9700,0
+              77.6000,12.9700,0
+              77.6000,12.9800,0
+              77.5900,12.9800,0
+              77.5900,12.9700,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+    <!-- Polygon 2: Tech Innovation Campus -->
+    <Placemark id="parcel_002">
+      <name>Tech Innovation Campus</name>
+      <description>Commercial IT sector complex</description>
+      <ExtendedData>
+        <Data name="zoning_code"><value>COM-IT</value></Data>
+        <Data name="occupancy_rate"><value>94.2</value></Data>
+      </ExtendedData>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              77.6050,12.9720,0
+              77.6150,12.9720,0
+              77.6180,12.9790,0
+              77.6070,12.9810,0
+              77.6050,12.9720,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+    <!-- LineString 1: Metro Ring Expressway -->
+    <Placemark id="road_101">
+      <name>Metro Ring Expressway</name>
+      <description>6-lane primary urban arterial highway</description>
+      <ExtendedData>
+        <Data name="surface_type"><value>Asphalt</value></Data>
+        <Data name="lanes"><value>6</value></Data>
+        <Data name="speed_limit_kph"><value>80</value></Data>
+      </ExtendedData>
+      <LineString>
+        <coordinates>
+          77.5850,12.9650,0
+          77.5950,12.9680,0
+          77.6100,12.9750,0
+          77.6250,12.9850,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+    <!-- LineString 2: Riverside Greenway Trail -->
+    <Placemark id="trail_202">
+      <name>Riverside Greenway Trail</name>
+      <description>Pedestrian and bicycle recreational trail</description>
+      <ExtendedData>
+        <Data name="surface_type"><value>Paved Gravel</value></Data>
+        <Data name="grade"><value>Class A</value></Data>
+      </ExtendedData>
+      <LineString>
+        <coordinates>
+          77.5880,12.9690,0
+          77.5920,12.9730,0
+          77.5980,12.9770,0
+          77.6040,12.9820,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+    <!-- Point 1: Geodetic Datum Station 01 -->
+    <Placemark id="monument_901">
+      <name>Geodetic Datum Benchmark 01</name>
+      <description>Primary brass benchmark marker</description>
+      <ExtendedData>
+        <Data name="elevation_msl_m"><value>920.45</value></Data>
+        <Data name="accuracy"><value>Sub-Centimeter</value></Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>77.5950,12.9750,920.45</coordinates>
+      </Point>
+    </Placemark>
+
+    <!-- Point 2: Geodetic Datum Station 02 -->
+    <Placemark id="monument_902">
+      <name>Geodetic Datum Benchmark 02</name>
+      <description>Secondary triangulation monument</description>
+      <ExtendedData>
+        <Data name="elevation_msl_m"><value>915.12</value></Data>
+        <Data name="accuracy"><value>Sub-Centimeter</value></Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>77.6120,12.9800,915.12</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

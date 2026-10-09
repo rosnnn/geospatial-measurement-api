@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Global Meteorological Stations</name>
+    <Placemark id="station_delhi">
+      <name>New Delhi Weather Observatory</name>
+      <ExtendedData>
+        <Data name="station_id"><value>DEL-01</value></Data>
+        <Data name="temp_celsius"><value>28.4</value></Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>77.2090,28.6139,216</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="station_mumbai">
+      <name>Mumbai Coastal Station</name>
+      <ExtendedData>
+        <Data name="station_id"><value>BOM-02</value></Data>
+        <Data name="humidity_pct"><value>82</value></Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>72.8777,19.0760,14</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
