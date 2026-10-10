@@ -30,7 +30,7 @@ It also features an **Interactive Leaflet GIS Web Visualizer** at `http://localh
 The application follows a **Layered Domain-Driven Modular Architecture** ensuring separation of concerns, testability, and high maintainability:
 
 ```
-c:\Users\whyde\Downloads\SDE-Intern Assignment-Geospatial\
+geospatial-measurement-api/
 ├── app/
 │   ├── main.py                    # Application factory, lifespan, CORS & static UI routing
 │   ├── core/
@@ -143,8 +143,8 @@ To guarantee sub-percent measurement accuracy, the service implements a multi-ti
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-link>
-cd <repo-folder>
+git clone https://github.com/rosnnn/geospatial-measurement-api.git
+cd geospatial-measurement-api
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -454,6 +454,7 @@ python sample_data/generate_samples.py
 ---
 
 ## 👨‍💻 Author & Submission
+- **Author:** Roshan Kumar Jha
 - **Role:** SDE Intern - Geospatial Backend
-- **Repository:** Public GitHub Repository
+- **Repository:** [https://github.com/rosnnn/geospatial-measurement-api](https://github.com/rosnnn/geospatial-measurement-api)
 - **Submission Date:** October 2026
