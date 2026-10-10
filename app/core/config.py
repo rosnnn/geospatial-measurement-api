@@ -31,6 +31,9 @@ class Settings(BaseSettings):
     DEFAULT_FALLBACK_CRS: str = "EPSG:4326"
     MAX_FEATURES_PER_PAGE: int = 500
 
+    # Basemap Configuration (Optional CARTO API key loaded securely via .env)
+    CARTO_API_KEY: str = ""
+
     # CORS
     CORS_ORIGINS: List[str] = ["*"]
 

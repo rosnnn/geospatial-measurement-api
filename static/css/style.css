@@ -492,3 +492,26 @@ body {
 
 .text-center { text-align: center; }
 .py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+/* Leaflet Basemap Switcher Dark Theme */
+.leaflet-control-layers {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: 6px 10px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+}
+
+.leaflet-control-layers-expanded {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+
+.leaflet-control-layers label {
+  color: var(--text-main) !important;
+  cursor: pointer;
+  margin-bottom: 4px;
+}

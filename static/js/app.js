@@ -12,16 +12,57 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchFilesList();
 });
 
+// CARTO API Key loaded securely from server environment (.env), if provided
+const CARTO_API_KEY = (window.CARTO_API_KEY && window.CARTO_API_KEY !== "__CARTO_API_KEY__")
+  ? window.CARTO_API_KEY
+  : "";
+
 function initMap() {
-  // Center roughly at default coordinates
+  // Center map initially
   map = L.map('map').setView([20.5937, 78.9629], 5);
 
-  // CartoDB Dark Matter Basemap
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  const cartoAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>';
+  const cartoKeyParam = CARTO_API_KEY ? `?key=${CARTO_API_KEY}` : '';
+
+  // 1. CARTO Dark Matter (Watermark-free) - Matches application dark theme
+  const darkMatter = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png${cartoKeyParam}`, {
+    attribution: cartoAttribution,
     subdomains: 'abcd',
     maxZoom: 20
-  }).addTo(map);
+  });
+
+  // 2. CARTO Voyager (Watermark-free) - Detailed colorful basemap
+  const voyager = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png${cartoKeyParam}`, {
+    attribution: cartoAttribution,
+    subdomains: 'abcd',
+    maxZoom: 20
+  });
+
+  // 3. CARTO Positron (Watermark-free) - Clean light basemap
+  const positron = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png${cartoKeyParam}`, {
+    attribution: cartoAttribution,
+    subdomains: 'abcd',
+    maxZoom: 20
+  });
+
+  // 4. OpenStreetMap Standard Basemap
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  });
+
+  // Default to Dark Matter for stunning dark-mode appearance
+  darkMatter.addTo(map);
+
+  // Basemap switcher control
+  const baseMaps = {
+    "🌙 CARTO Dark Matter": darkMatter,
+    "🧭 CARTO Voyager": voyager,
+    "☀️ CARTO Positron": positron,
+    "🗺️ OpenStreetMap": osm
+  };
+
+  L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 }
 
 function setupEventListeners() {

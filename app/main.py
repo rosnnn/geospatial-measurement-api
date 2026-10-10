@@ -65,12 +65,13 @@ app.include_router(measurements.router, prefix=settings.API_V1_PREFIX)
 app.include_router(health.router, prefix=settings.API_V1_PREFIX)
 
 
-# Web UI Dashboard Route
 @app.get("/", response_class=HTMLResponse, tags=["Dashboard"], include_in_schema=False)
 async def serve_dashboard():
     """Serves the interactive Leaflet GIS visualizer and measurement dashboard."""
     template_path = settings.BASE_DIR / "templates" / "index.html"
     if template_path.exists():
         with open(template_path, "r", encoding="utf-8") as f:
-            return HTMLResponse(content=f.read())
+            content = f.read().replace("__CARTO_API_KEY__", settings.CARTO_API_KEY)
+            return HTMLResponse(content=content)
     return HTMLResponse("<h2>GeoMeasure API is running. Visit <a href='/docs'>/docs</a> for Swagger documentation.</h2>")
+
